@@ -35,6 +35,142 @@
     <header class="h-14 bg-slate-900/60 border-b border-slate-800 px-6 flex items-center justify-between">
       <div class="flex items-center gap-3">
         <span id="current-icon" class="text-xl">🎙️</span>
+        <h2 id="current-title" class="font-semibold text-lg">Voice Studio (Free)</h2>
+        <span id="current-url-badge" class="text-xs bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 px-2.5 py-0.5 rounded-full">
+          100% Free Browser Engine
+        </span>
+      </div>
+      <a id="open-new-tab" href="#" target="_blank" class="hidden text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg transition">
+        नवीन टॅबमध्ये उघडा ↗
+      </a>
+    </header>
+
+    <!-- १. इनबिल्ट मोफत Voice Studio -->
+    <div id="inbuilt-voice-studio" class="flex-1 p-6 overflow-y-auto">
+      <div class="max-w-3xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-5">
+        <div>
+          <h3 class="text-xl font-bold text-indigo-400">🎙️ मोफत AI व्हॉइस आणि स्क्रिप्ट स्टुडिओ</h3>
+          <p class="text-xs text-slate-400 mt-1">मराठी, हिंदी किंवा इंग्रजीमध्ये रीलचा आवाज तयार करा.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">आवाज निवडा (Voice / Language)</label>
+            <select id="voice-select" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white"></select>
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">बोलण्याचा वेग (Speed): <span id="rate-val">1.0</span>x</label>
+            <input id="voice-rate" type="range" min="0.7" max="1.4" step="0.1" value="1.0" oninput="document.getElementById('rate-val').textContent=this.value" class="w-full mt-2 accent-indigo-500" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-300 mb-1">तुमची रीलची स्क्रिप्ट इथे लिहा:</label>
+          <textarea id="script-text" rows="5" placeholder="उदा. नमस्कार मित्रांनो! आज आपण जाणून घेणार आहोत एआयच्या जगातील ३ आश्चर्यकारक गोष्टी..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-indigo-500"></textarea>
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <button onclick="speakScript()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-semibold transition">
+            ▶️ आवाज ऐका (Play)
+          </button>
+          <button onclick="stopSpeech()" class="px-4 py-2.5 bg-rose-600/80 hover:bg-rose-600 rounded-xl text-sm font-medium transition">
+            ⏹️ थांबवा
+          </button>
+          <button onclick="copyScript()" class="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 rounded-xl text-sm font-medium transition">
+            📋 स्क्रिप्ट कॉपी करा
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- २. इनबिल्ट मोफत AI Image Generator (9:16 Reels साठी) -->
+    <div id="inbuilt-image-studio" class="hidden flex-1 p-6 overflow-y-auto">
+      <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-4">
+          <div>
+            <h3 class="text-xl font-bold text-cyan-400">🎨 मोफत AI इमेज स्टुडिओ (Reels 9:16)</h3>
+            <p class="text-xs text-slate-400 mt-1">कोणतेही सॉफ्टवेअर डाउनलोड न करता रीलसाठी HD फोटो बनवा.</p>
+          </div>
+
+          <div>
+            <label class="block text-xs text-slate-300 mb-1">तुम्हाला कसा फोटो हवा आहे? (इंग्रजीत वर्णन लिहा)</label>
+            <textarea id="img-prompt" rows="4" placeholder="उदा. Cinematic dark mysterious haunted ancient Indian palace at night, glowing moonlight, hyperrealistic, 8k" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-500"></textarea>
+          </div>
+
+          <button onclick="generateFreeImage()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 rounded-xl text-sm font-bold transition">
+            ✨ मोफत फोटो तयार करा (Generate Image)
+          </button>
+
+          <a id="download-img-btn" href="#" download="learning-hub-scene.jpg" target="_blank" class="hidden block w-full text-center py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-semibold transition">
+            ⬇️ फोटो डाउनलोड करा (Download HD)
+          </a>
+        </div>
+
+        <div class="flex flex-col items-center justify-center bg-slate-950 border border-slate-800 rounded-xl p-4 min-h-[380px]">
+          <p id="img-status" class="text-xs text-slate-500 text-center">इथे तुमचा 9:16 रील फोटो तयार होऊन दिसेल</p>
+          <img id="generated-img" src="" alt="AI Generated" class="hidden max-h-[420px] rounded-lg shadow-lg object-contain" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ३. इतर टूल्ससाठी Iframe स्क्रीन -->
+    <div id="iframe-container" class="hidden flex-1 relative">
+      <iframe id="tool-frame" src="" class="w-full h-full border-0 bg-white"></iframe>
+    </div>
+  </main>
+
+  <!-- सेटिंग्ज पॉपअप -->
+  <div id="settings-modal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-50">
+    <div class="bg-slate-900 border border-slate-700 rounded-xl w-full max-w-lg p-6 max-h-[85vh] overflow-y-auto">
+      <h3 class="text-lg font-bold mb-1">⚙️ तुमच्या टूल्सच्या लिंक्स (URLs) सेट करा</h3>
+      <p class="text-xs text-slate-400 mb-4">जर तुम्ही ComfyUI PC वर चालू केले तर त्याची लिंक (http://127.0.0.1:8188) इथे टाकू शकता:</p>
+      <div id="settings-inputs" class="space-y-3"></div>
+      <div class="flex justify-end gap-2 mt-6">
+        <button onclick="closeSettings()" class="px-4 py-2 bg-slate-800 rounded-lg text-sm">रद्द करा</button>
+        <button onclick="saveSettings()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-sm font-semibold">सेव्ह करा</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const defaultTools = [
+      { id: "voicestudio", name:<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Hub - AI Viral Reel Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-white flex h-screen overflow-hidden font-sans">
+
+  <!-- डावीकडचा मेनू (Sidebar) -->
+  <aside class="w-64 bg-slate-900 border-r border-slate-800 flex flex-col justify-between p-4">
+    <div>
+      <div class="flex items-center gap-2 mb-6 px-2">
+        <span class="text-2xl">🚀</span>
+        <h1 class="text-xl font-bold bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+          Learning Hub
+        </h1>
+      </div>
+
+      <p class="text-xs text-slate-400 uppercase font-semibold px-2 mb-2">All-In-One Workspace</p>
+      <nav id="menu-list" class="space-y-1"></nav>
+    </div>
+
+    <div class="space-y-2 border-t border-slate-800 pt-4">
+      <button onclick="openSettings()" class="w-full py-2 px-3 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-sm font-medium transition">
+        ⚙️ Tools Links सेट करा
+      </button>
+      <p class="text-[11px] text-center text-slate-500">100% Free Edition</p>
+    </div>
+  </aside>
+
+  <!-- मुख्य स्क्रीन (Main Workspace) -->
+  <main class="flex-1 flex flex-col bg-slate-950">
+    <header class="h-14 bg-slate-900/60 border-b border-slate-800 px-6 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span id="current-icon" class="text-xl">🎙️</span>
         <h2 id="current-title" class="font-semibold text-lg">Voice Studio (Inbuilt Free)</h2>
         <span id="current-url-badge" class="text-xs bg-emerald-900/50 text-emerald-300 border border-emerald-700/50 px-2.5 py-0.5 rounded-full">
           100% Free Browser Engine
