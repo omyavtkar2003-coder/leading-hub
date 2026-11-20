@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Learning Hub - AI Viral Reel Studio</title>
+  <title>Learning Hub - Realistic Viral Reel Studio</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-950 text-white flex h-screen overflow-hidden font-sans">
@@ -18,13 +18,10 @@
         </h1>
       </div>
 
-      <p class="text-xs text-slate-400 uppercase font-semibold px-2 mb-2">All-In-One Workspace</p>
-      <nav id="menu-list" class="space-y-1">
+      <p class="text-xs text-slate-400 uppercase font-semibold px-2 mb-2">Studio Tools</p>
+      <nav class="space-y-1">
         <button onclick="showTab('reel')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm bg-indigo-600/20 text-indigo-300 border border-indigo-500/30 hover:bg-slate-800 transition text-left font-semibold">
-          <span>🎬</span><span>Viral Reel Maker (Free)</span>
-        </button>
-        <button onclick="showTab('image')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition text-left">
-          <span>🖼️</span><span>AI Image Studio (Free)</span>
+          <span>🎬</span><span>Realistic Reel Maker</span>
         </button>
         <button onclick="openLink('http://127.0.0.1:8188', 'ComfyUI')" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm text-slate-300 hover:bg-slate-800 transition text-left">
           <span>🎨</span><span>ComfyUI (Local)</span>
@@ -54,118 +51,104 @@
     </div>
 
     <div class="border-t border-slate-800 pt-3 text-center">
-      <p class="text-[11px] text-slate-500">100% Free Viral Reel Engine</p>
+      <p class="text-[11px] text-slate-500">Flux-Realism + ElevenLabs Ready</p>
     </div>
   </aside>
 
   <!-- मुख्य स्क्रीन -->
   <main class="flex-1 flex flex-col bg-slate-950 overflow-hidden">
     <header class="h-14 bg-slate-900/60 border-b border-slate-800 px-6 flex items-center justify-between shrink-0">
-      <h2 id="header-title" class="font-semibold text-lg">🎬 Viral Horror / Story Reel Maker (100% Free)</h2>
+      <h2 id="header-title" class="font-semibold text-lg">🎬 Hyper-Realistic Viral Reel Studio</h2>
       <a id="ext-link" href="#" target="_blank" class="hidden text-xs bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded-lg">नवीन टॅबमध्ये उघडा ↗</a>
     </header>
 
-    <!-- १. व्हायरल रील मेकर (तुम्ही पाठवलेल्या व्हिडिओसारखा) -->
     <div id="tab-reel" class="flex-1 p-6 overflow-y-auto">
       <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- डावी बाजू: इनपुट फॉर्म -->
+        <!-- डावी बाजू: इनपुट -->
         <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 space-y-4">
-          <h3 class="text-base font-bold text-indigo-400">१. रीलची माहिती भरा (तुमच्या रेफरन्स व्हिडिओसारखी)</h3>
+          <h3 class="text-base font-bold text-cyan-400">१. Realistic ग्राफिक्स आणि Voice ID सेटिंग</h3>
 
           <div class="grid grid-cols-3 gap-3">
             <div class="col-span-2">
               <label class="block text-xs text-slate-300 mb-1">वरचे मुख्य टायटल (Hook Title)</label>
-              <input id="reel-hook" type="text" value="अमावस्या की रात उस हवेली में अकेले जाना" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" />
+              <input id="reel-hook" type="text" value="अमावस्या की रात उस हवेली का रहस्य" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white" />
             </div>
             <div>
-              <label class="block text-xs text-slate-300 mb-1">कोपऱ्यातील बॅज</label>
+              <label class="block text-xs text-slate-300 mb-1">बॅज</label>
               <input id="reel-part" type="text" value="भाग 1/2" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-amber-400 font-bold" />
             </div>
           </div>
 
           <div>
-            <label class="block text-xs text-slate-300 mb-1">बॅकग्राउंड AI फोटोसाठी वर्णन (इंग्रजीत) किंवा स्वतःचा फोटो निवडा:</label>
+            <label class="block text-xs text-slate-300 mb-1">Realistic सीन वर्णन (खऱ्या कॅमेरा शॉटसारख्या फोटोसाठी):</label>
             <div class="flex gap-2">
-              <input id="reel-img-prompt" type="text" value="Dark Indian graphic novel comic art style, young man holding glowing vintage lantern outside spooky ancient Indian haveli at night, moody teal lighting, 9:16" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white" />
-              <button onclick="loadReelBackground()" class="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 rounded-lg text-xs font-bold shrink-0">🎨 AI फोटो आणा</button>
+              <input id="reel-img-prompt" type="text" value="Raw candid DSLR photograph of a young Indian man in a dark moody corridor of an abandoned ancient Rajasthan fort at night, holding a real flickering oil lantern, dramatic volumetric fog, realistic skin texture, cinematic 35mm lens, f/1.8, photorealistic, 8k" class="flex-1 bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white" />
+              <button onclick="loadRealisticBg()" class="px-3 py-2 bg-cyan-600 hover:bg-cyan-500 rounded-lg text-xs font-bold shrink-0">📸 Realistic फोटो</button>
             </div>
           </div>
 
           <div>
-            <label class="block text-xs text-slate-300 mb-1">कथा / स्क्रिप्ट (हिंदी किंवा मराठी - शब्द आपोआप हायलाइट होतील):</label>
+            <label class="block text-xs text-slate-300 mb-1">तुमची कथा / स्क्रिप्ट (हिंदी किंवा मराठी):</label>
             <textarea id="reel-script" rows="4" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white">अमावस्या की रात उस पुरानी हवेली के दरवाज़े पर बिना किसी तेल के एक लालटेन जल रही थी। राघव ने जैसे ही हवेली की दहलीज़ पार की, अंदर से किसी के फुसफुसाने की आवाज़ आई।</textarea>
           </div>
 
-          <div>
-            <label class="block text-xs text-slate-300 mb-1">आवाज निवडा (Hindi / Marathi Voice):</label>
-            <select id="voice-select" class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white"></select>
+          <!-- ElevenLabs Voice ID सेक्शन -->
+          <div class="bg-slate-950/90 border border-indigo-500/40 rounded-xl p-3 space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold text-indigo-300">🎙️ तुमचा खास आवाज (Voice ID जोडलेला आहे)</span>
+              <span class="text-[11px] bg-indigo-900/60 text-indigo-200 px-2 py-0.5 rounded font-mono">7b9mYhmnp0y2qSH1FnBL</span>
+            </div>
+            <input id="eleven-api-key" type="password" placeholder="तुमची मोफत ElevenLabs API Key इथे पेस्ट करा (sk_...)" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-1.5 text-xs text-white" />
+            <p class="text-[11px] text-slate-400">
+              *मोफत Key साठी <a href="https://elevenlabs.io" target="_blank" class="text-cyan-400 underline">elevenlabs.io</a> वर फ्री अकाउंट बनवून Profile ➔ API Key कॉपी करा. (Key नसेल तर तात्पुरता ब्राउझर आवाज चालेल).
+            </p>
           </div>
 
-          <div class="flex gap-3 pt-2">
-            <button onclick="startReelPreview(false)" class="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-sm font-bold transition">
-              ▶️ प्रीव्ह्यू पहा (Play Reel)
+          <div class="flex gap-3 pt-1">
+            <button onclick="generateFinalReel(false)" class="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-500 rounded-xl text-sm font-bold transition">
+              ▶️ प्रीव्ह्यू पहा (Play)
             </button>
-            <button onclick="startReelPreview(true)" class="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold transition">
-              ⏺️ व्हिडिओ बनवा व डाउनलोड करा
+            <button onclick="generateFinalReel(true)" class="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold transition">
+              ⏺️ HD व्हिडिओ बनवा व डाउनलोड करा
             </button>
           </div>
           <p id="rec-status" class="text-xs text-amber-400 text-center"></p>
         </div>
 
-        <!-- उजवी बाजू: 9:16 लाईव्ह व्हिडिओ कॅनव्हास -->
+        <!-- उजवी बाजू: 9:16 कॅनव्हास -->
         <div class="flex flex-col items-center justify-center bg-slate-900 border border-slate-800 rounded-2xl p-4">
           <canvas id="reel-canvas" width="540" height="960" class="w-[270px] h-[480px] rounded-xl border-2 border-slate-700 shadow-2xl bg-black"></canvas>
-          <a id="download-video-link" href="#" download="viral-horror-reel.webm" class="hidden mt-4 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold">
-            ⬇️ तयार झालेला व्हिडिओ डाउनलोड करा!
+          <a id="download-video-link" href="#" download="realistic-viral-reel.webm" class="hidden mt-4 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-sm font-bold">
+            ⬇️ तयार झालेला Realistic व्हिडिओ डाउनलोड करा!
           </a>
         </div>
       </div>
     </div>
 
-    <!-- २. मोफत AI इमेज स्टुडिओ -->
-    <div id="tab-image" class="hidden flex-1 p-6 overflow-y-auto">
-      <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-2xl p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="space-y-4">
-          <h3 class="text-xl font-bold text-cyan-400">🎨 मोफत AI इमेज स्टुडिओ (Comic / Horror Style)</h3>
-          <textarea id="standalone-prompt" rows="4" class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white">Dark Indian graphic novel comic art style, spooky ancient haveli at night, glowing lantern, dramatic shadows</textarea>
-          <button onclick="genStandaloneImage()" class="w-full py-3 bg-cyan-600 hover:bg-cyan-500 rounded-xl text-sm font-bold">✨ मोफत फोटो तयार करा</button>
-        </div>
-        <div class="flex items-center justify-center bg-slate-950 border border-slate-800 rounded-xl p-4 min-h-[360px]">
-          <img id="standalone-img" src="" class="hidden max-h-[400px] rounded-lg" />
-          <p id="standalone-status" class="text-xs text-slate-500">इथे तुमचा फोटो दिसेल</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ३. Iframe टॅब -->
     <div id="tab-iframe" class="hidden flex-1">
       <iframe id="ext-frame" src="" class="w-full h-full border-0 bg-white"></iframe>
     </div>
   </main>
 
   <script>
+    const VOICE_ID = "7b9mYhmnp0y2qSH1FnBL";
     let bgImage = new Image();
     bgImage.crossOrigin = "anonymous";
     let animFrameId;
 
+    // सेव्ह केलेली API Key लोड करणे
+    const savedKey = localStorage.getItem("eleven_key");
+    if (savedKey) document.getElementById("eleven-api-key").value = savedKey;
+
     function showTab(tab) {
-      document.getElementById("tab-reel").classList.add("hidden");
-      document.getElementById("tab-image").classList.add("hidden");
+      document.getElementById("tab-reel").classList.remove("hidden");
       document.getElementById("tab-iframe").classList.add("hidden");
       document.getElementById("ext-link").classList.add("hidden");
-
-      if (tab === "reel") {
-        document.getElementById("tab-reel").classList.remove("hidden");
-        document.getElementById("header-title").textContent = "🎬 Viral Horror / Story Reel Maker (100% Free)";
-      } else if (tab === "image") {
-        document.getElementById("tab-image").classList.remove("hidden");
-        document.getElementById("header-title").textContent = "🖼️ मोफत AI इमेज स्टुडिओ";
-      }
+      document.getElementById("header-title").textContent = "🎬 Hyper-Realistic Viral Reel Studio";
     }
 
     function openLink(url, title) {
       document.getElementById("tab-reel").classList.add("hidden");
-      document.getElementById("tab-image").classList.add("hidden");
       document.getElementById("tab-iframe").classList.remove("hidden");
       document.getElementById("ext-link").classList.remove("hidden");
       document.getElementById("ext-link").href = url;
@@ -173,32 +156,19 @@
       document.getElementById("ext-frame").src = url;
     }
 
-    function loadVoices() {
-      const sel = document.getElementById("voice-select");
-      const voices = speechSynthesis.getVoices();
-      sel.innerHTML = "";
-      voices.forEach((v, i) => {
-        const opt = document.createElement("option");
-        opt.value = i;
-        opt.textContent = `${v.name} (${v.lang})`;
-        if (v.lang.includes("hi") || v.lang.includes("IN")) opt.selected = true;
-        sel.appendChild(opt);
-      });
-    }
-    speechSynthesis.onvoiceschanged = loadVoices;
-    loadVoices();
-
-    function loadReelBackground() {
+    // Flux-Realism मॉडेल वापरून खराखुरा फोटो आणणे
+    function loadRealisticBg() {
       const prompt = document.getElementById("reel-img-prompt").value.trim();
-      document.getElementById("rec-status").textContent = "⏳ AI कॉमिक बॅकग्राउंड फोटो लोड होत आहे...";
-      const seed = Math.floor(Math.random() * 99999);
+      document.getElementById("rec-status").textContent = "⏳ Flux-Realism मधून खऱ्या कॅमेरासारखा फोटो तयार होत आहे...";
+      const seed = Math.floor(Math.random() * 999999);
       bgImage = new Image();
       bgImage.crossOrigin = "anonymous";
       bgImage.onload = () => {
-        document.getElementById("rec-status").textContent = "✅ फोटो तयार आहे! आता 'प्रीव्ह्यू पहा' किंवा 'व्हिडिओ बनवा' दाबा.";
+        document.getElementById("rec-status").textContent = "✅ Realistic फोटो तयार आहे!";
         drawFrame(1.0, "");
       };
-      bgImage.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=540&height=960&seed=${seed}&nologo=true`;
+      // model=flux-realism आणि enhance=true मुळे कार्टून न दिसता एकदम खरा फोटो येतो
+      bgImage.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(prompt)}?width=540&height=960&seed=${seed}&model=flux-realism&enhance=true&nologo=true`;
     }
 
     function drawFrame(zoom, currentChunk) {
@@ -206,40 +176,36 @@
       const ctx = canvas.getContext("2d");
       const w = canvas.width, h = canvas.height;
 
-      ctx.fillStyle = "#0a0f18";
+      ctx.fillStyle = "#05070b";
       ctx.fillRect(0, 0, w, h);
 
-      // १. झूम होणारा बॅकग्राउंड फोटो
       if (bgImage.complete && bgImage.naturalWidth > 0) {
         const sw = w * zoom, sh = h * zoom;
         ctx.drawImage(bgImage, (w - sw) / 2, (h - sh) / 2, sw, sh);
       }
 
-      // डार्क व्हिनेट (अंधारमय इफेक्ट)
       const grad = ctx.createLinearGradient(0, 0, 0, h);
-      grad.addColorStop(0, "rgba(0,0,0,0.65)");
-      grad.addColorStop(0.5, "rgba(0,0,0,0.2)");
+      grad.addColorStop(0, "rgba(0,0,0,0.6)");
+      grad.addColorStop(0.5, "rgba(0,0,0,0.15)");
       grad.addColorStop(1, "rgba(0,0,0,0.85)");
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, w, h);
 
-      // २. वरचा उजवा बॅज (भाग 1/2)
-      const partText = document.getElementById("reel-part").value;
+      // वरचा कोपरा बॅज
       ctx.font = "bold 22px sans-serif";
       ctx.fillStyle = "#facc15";
       ctx.textAlign = "right";
-      ctx.fillText(partText, w - 25, 45);
+      ctx.fillText(document.getElementById("reel-part").value, w - 25, 45);
 
-      // ३. वरचे मुख्य टायटल (Hook)
-      const hook = document.getElementById("reel-hook").value;
+      // मुख्य टायटल
       ctx.textAlign = "center";
       ctx.font = "bold 28px sans-serif";
       ctx.fillStyle = "#ffffff";
       ctx.shadowColor = "black";
-      ctx.shadowBlur = 10;
-      wrapText(ctx, hook, w / 2, 130, w - 60, 36);
+      ctx.shadowBlur = 12;
+      wrapText(ctx, document.getElementById("reel-hook").value, w / 2, 130, w - 60, 36);
 
-      // ४. मध्यभागी मोठे सबटायटल्स (रेफरन्स व्हिडिओसारखे)
+      // सबटायटल्स
       if (currentChunk) {
         ctx.font = "bold 36px sans-serif";
         ctx.fillStyle = "#38bdf8";
@@ -264,28 +230,72 @@
       ctx.fillText(line, x, y);
     }
 
-    function startReelPreview(recordVideo) {
+    async function generateFinalReel(recordVideo) {
       const script = document.getElementById("reel-script").value.trim();
+      const apiKey = document.getElementById("eleven-api-key").value.trim();
       if (!script) return alert("आधी कथा लिहा!");
+      if (apiKey) localStorage.setItem("eleven_key", apiKey);
 
-      speechSynthesis.cancel();
       cancelAnimationFrame(animFrameId);
-
       const words = script.split(/\s+/);
       let wordIndex = 0;
       let zoom = 1.0;
 
-      const utterance = new SpeechSynthesisUtterance(script);
-      const voices = speechSynthesis.getVoices();
-      const selIdx = document.getElementById("voice-select").value;
-      if (voices[selIdx]) utterance.voice = voices[selIdx];
-      utterance.rate = 0.95;
+      // जर ElevenLabs Key टाकली असेल तर तुमच्या 7b9mYhmnp0y2qSH1FnBL आवाजात ऑडिओ बनवणे
+      if (apiKey) {
+        try {
+          document.getElementById("rec-status").textContent = "🎙️ Voice ID (7b9mYhmnp0y2qSH1FnBL) मधून खरा आवाज तयार होत आहे...";
+          const res = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
+            method: "POST",
+            headers: {
+              "xi-api-key": apiKey,
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              text: script,
+              model_id: "eleven_multilingual_v2",
+              voice_settings: { stability: 0.5, similarity_boost: 0.8 }
+            })
+          });
 
+          if (!res.ok) throw new Error("API Key चुकीची आहे किंवा क्रेडिट संपले आहे.");
+          const audioBlob = await res.blob();
+          const audioUrl = URL.createObjectURL(audioBlob);
+          const audio = new Audio(audioUrl);
+
+          runCanvasAndRecord(audio, words, recordVideo);
+          return;
+        } catch (err) {
+          alert("ElevenLabs आवाज एरर: " + err.message);
+          return;
+        }
+      } else {
+        alert("तुमचा खास आवाज (7b9mYhmnp0y2qSH1FnBL) चालवण्यासाठी वरच्या बॉक्समध्ये तुमची मोफत ElevenLabs API Key टाका!");
+      }
+    }
+
+    function runCanvasAndRecord(audioEl, words, recordVideo) {
+      let wordIndex = 0;
+      let zoom = 1.0;
       let recorder, chunks = [];
+
+      const canvas = document.getElementById("reel-canvas");
+      const canvasStream = canvas.captureStream(30);
+
+      // कॅनव्हास व्हिडिओ + खरा ElevenLabs ऑडिओ एकत्र जोडणे!
+      const audioCtx = new AudioContext();
+      const source = audioCtx.createMediaElementSource(audioEl);
+      const dest = audioCtx.createMediaStreamDestination();
+      source.connect(dest);
+      source.connect(audioCtx.destination);
+
+      const combinedStream = new MediaStream([
+        ...canvasStream.getVideoTracks(),
+        ...dest.stream.getAudioTracks()
+      ]);
+
       if (recordVideo) {
-        const canvas = document.getElementById("reel-canvas");
-        const stream = canvas.captureStream(30);
-        recorder = new MediaRecorder(stream, { mimeType: "video/webm" });
+        recorder = new MediaRecorder(combinedStream, { mimeType: "video/webm" });
         recorder.ondataavailable = e => chunks.push(e.data);
         recorder.onstop = () => {
           const blob = new Blob(chunks, { type: "video/webm" });
@@ -293,44 +303,38 @@
           const dl = document.getElementById("download-video-link");
           dl.href = url;
           dl.classList.remove("hidden");
-          document.getElementById("rec-status").textContent = "✅ व्हिडिओ तयार झाला! खालील हिरव्या बटणावरून डाउनलोड करा.";
+          document.getElementById("rec-status").textContent = "✅ खऱ्या आवाजासह HD व्हिडिओ तयार झाला! खाली क्लिक करून डाउनलोड करा.";
         };
         recorder.start();
-        document.getElementById("rec-status").textContent = "⏺️ व्हिडिओ रेकॉर्ड होत आहे, पूर्ण होईपर्यंत थांबा...";
+        document.getElementById("rec-status").textContent = "⏺️ HD व्हिडिओ आणि खरा आवाज रेकॉर्ड होत आहे...";
       }
 
-      const wordTimer = setInterval(() => {
-        if (wordIndex < words.length) wordIndex += 3;
-      }, 900);
+      audioEl.onloadedmetadata = () => {
+        const msPerWord = (audioEl.duration * 1000) / words.length;
+        const wordTimer = setInterval(() => {
+          if (wordIndex < words.length) wordIndex += 1;
+        }, msPerWord);
 
-      function animate() {
-        zoom += 0.0005;
-        const currentChunk = words.slice(Math.max(0, wordIndex - 3), wordIndex + 1).join(" ");
-        drawFrame(zoom, currentChunk);
-        animFrameId = requestAnimationFrame(animate);
-      }
+        function animate() {
+          zoom += 0.0004;
+          const start = Math.max(0, wordIndex - 2);
+          const currentChunk = words.slice(start, wordIndex + 1).join(" ");
+          drawFrame(zoom, currentChunk);
+          animFrameId = requestAnimationFrame(animate);
+        }
 
-      utterance.onend = () => {
-        clearInterval(wordTimer);
-        cancelAnimationFrame(animFrameId);
-        if (recorder && recorder.state !== "inactive") recorder.stop();
+        audioEl.onended = () => {
+          clearInterval(wordTimer);
+          cancelAnimationFrame(animFrameId);
+          if (recorder && recorder.state !== "inactive") recorder.stop();
+        };
+
+        animate();
+        audioEl.play();
       };
-
-      animate();
-      speechSynthesis.speak(utterance);
     }
 
-    function genStandaloneImage() {
-      const p = document.getElementById("standalone-prompt").value;
-      const img = document.getElementById("standalone-img");
-      const st = document.getElementById("standalone-status");
-      st.textContent = "⏳ फोटो तयार होत आहे...";
-      img.onload = () => { st.classList.add("hidden"); img.classList.remove("hidden"); };
-      img.src = `https://image.pollinations.ai/prompt/${encodeURIComponent(p)}?width=720&height=1280&seed=${Math.random()}&nologo=true`;
-    }
-
-    // सुरुवातीला लगेच डिफॉल्ट फोटो लोड करा
-    loadReelBackground();
+    loadRealisticBg();
   </script>
 </body>
 </html>
